@@ -37,10 +37,9 @@ namespace Szigetek
         static void Main(string[] args)
         {
             string[] terkep = { "1", "1", "1", "0", "0", "1", "1", "0", "1", "1", "1", "1", "0", "0", "1"};
-            int[] eredmeny = Szigethossz(terkep)
-            Console.WriteLine("Legnagyobb sziget hossza: {0}", eredmeny[0];
-            Console.WriteLine("Hány sziget van: {0}", eredmeny[1];
-
+            int[] eredmeny = Szigethossz(terkep);
+            Console.WriteLine("Legnagyobb sziget hossza: {0}", eredmeny[0]);
+            
             Console.ReadKey();
 
         }
