@@ -10,8 +10,11 @@ namespace oszthato5el
     {
         static void Main(string[] args)
         {
-            int bekert = Int32.Parse(Console.ReadLine());
-            for (int i = 0; i < bekert; i++)
+            Console.WriteLine("Intervallum kezdete:");
+            int bekertMin = Int32.Parse(Console.ReadLine());
+            Console.WriteLine("Intervallum vége:");
+            int bekertMax = Int32.Parse(Console.ReadLine());
+            for (int i = bekertMin; i < bekertMax; i++)
             {
                 if (i % 5 == 0)
                 {
