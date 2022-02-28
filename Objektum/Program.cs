@@ -20,7 +20,7 @@ namespace Objektum
 		};
 
 		public string[] Ingeridents;
-		int total;
+		double total;
 
         public Smoothies(string[] ingerdient)
         {
@@ -30,12 +30,12 @@ namespace Objektum
 
 		public double GetCost()
         {
-            for (int i = 0; i < Ingeridents.Length; i++)
-            {
-				total = total + Int32.Parse(prices[Ingeridents[i]]);
-
-            }
+			foreach (var item in Ingeridents)
+			{
+				total = total + prices[item];
+			}
 			return total;
+
         }
 
 	}
