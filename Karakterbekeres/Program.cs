@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Csempezes
+namespace Karakterbekeres
 {
     class Program
     {
-        static double Csempemennyiseg(int m, int sz)
+        static void Main(string[] args)
         {
             int ertek = Math.Floor(m * sz / 20 * 20);
             return ertek + ertek * 0.1;
         }
-        static void Main(string[] args)
+        static int[] Osszeg(int x)
         {
             Console.WriteLine("Adja meg a magasságot és szélességet.");
             int magassag = Int32.Parse(Console.ReadLine());
