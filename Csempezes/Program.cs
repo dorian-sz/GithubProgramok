@@ -10,10 +10,16 @@ namespace Csempezes
     {
         static double Csempemennyiseg(int m, int sz)
         {
-            return Math.Floor(m * sz / 20 * 20);
+            int ertek = Math.Floor(m * sz / 20 * 20);
+            return ertek + ertek * 0.1;
         }
         static void Main(string[] args)
         {
+            Console.WriteLine("Adja meg a magasságot és szélességet.");
+            int magassag = Int32.Parse(Console.ReadLine());
+            int szelesseg = Int32.Parse(Console.ReadLine());
+
+            Console.WriteLine(Csempemennyiseg(magassag,szelesseg));
         }
     }
 }
