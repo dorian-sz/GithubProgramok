@@ -41,14 +41,14 @@ namespace Homerseklet
             
         }
 
-        public int getMaxTemp()
+        public Tuple<int,int,int> getMinMaxAvgTemp()
         {
-            return this.temperature.Cast<int>().Max();
+            return Tuple.Create(this.temperature[][].Cast<int>().Min(), this.temperature.Cast<int>().Max());
         }
 
         public int getMinTemp()
         {
-            return this.temperature.Cast<int>().Min();
+            return 
         }
 
     }
