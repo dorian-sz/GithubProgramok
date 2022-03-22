@@ -12,13 +12,15 @@ namespace Homerseklet
         private string monthName;
         private int[,] temperature;
         private int[] aList;
-        private int averageTemp, minTemp, maxTemp;
+        private int averageTemp, minTemp1, maxTemp1 , minTemp2, maxTemp2;
         
-        public Months(int minTemp, int maxTemp, int m)
+        public Months(int minTemp1, int minTemp2, int maxTemp1, int maxTemp2, int m)
         {
             this.m = m;
-            this.minTemp = minTemp;
-            this.maxTemp = maxTemp;
+            this.minTemp1 = minTemp1;
+            this.maxTemp1 = maxTemp1;
+            this.minTemp2 = minTemp2;
+            this.maxTemp2 = maxTemp2;
             this.temperature = new int[90,4];
         }
 
@@ -39,23 +41,36 @@ namespace Homerseklet
 	            }
                 this.temperature[i, 0] = this.m;
                 this.temperature[i, 1] = d;
-                this.temperature[i, 2] = rnd.Next(this.minTemp, this.maxTemp);
-                this.temperature[i, 3] = rnd.Next(this.minTemp, this.maxTemp);
+                this.temperature[i, 2] = rnd.Next(this.minTemp1, this.minTemp2);
+                this.temperature[i, 3] = rnd.Next(this.maxTemp1, this.maxTemp2);
                 d++;
             }
         }
 
 
-        public void getMinMaxAvgTemp(int month)
+        public void getMinMaxAvgTempDay(int day)
         { 
-            int max = -50;
             for (int i = 0; i < this.temperature.GetLength(0); i++)
 			{
-                if (this.temperature[i,0] == month)
+                if (this.temperature[i,1] == day)
 	            {
+                    Console.WriteLine("Hónap: {0}, Nap: {1}, Min hőmérséklet: {2}, Max hőmérséklet: {3}, Átlag hőmérséklet: {4}", this.temperature[i,0], this.temperature[i,1], this.temperature[i,2],this.temperature[i,3], (this.temperature[i,2] + this.temperature[i,3]) / 2);
 	            }
 			}
-            Console.WriteLine("Hónap: {2}, Első: {0}, Második: {1}",this.temperature[i,2],this.temperature[i,3], this.temperature[i,0]);
+            
+        }
+
+        public void getMinMaxAvgTempMonth(int month)
+        {
+            int min;
+            for (int i = 0; i < this.temperature.GetLength(0); i++)
+			{
+                if (this.temperature[i,0] == month )
+	            {
+                    Console.WriteLine("Hónap: {0}, Nap: {1}, Min hőmérséklet: {2}, Max hőmérséklet: {3}, Átlag hőmérséklet: {4}", this.temperature[i,0], this.temperature[i,1], this.temperature[i,2],this.temperature[i,3], (this.temperature[i,2] + this.temperature[i,3]) / 2);
+	            }
+			}
+            
         }
     }
 }
