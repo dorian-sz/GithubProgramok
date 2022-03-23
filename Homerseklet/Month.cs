@@ -25,7 +25,7 @@ namespace Homerseklet
             this.minTemp2 = minTemp2;
             this.maxTemp2 = maxTemp2;
             this.temperature = new int[30,4];
-            this.temps = new int[60];
+            this.temps = new int[2];
         }
 
         public void fillList()
@@ -81,5 +81,9 @@ namespace Homerseklet
             return this.evszak;
         }
 
+        public int[] getTemps()
+        {
+            return Enumerable.Range(0, this.temperature.GetLength(0)).Select(x => this.temperature[x, 2]).ToArray();            
+        }
     }
 }

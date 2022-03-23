@@ -29,13 +29,18 @@ namespace Homerseklet
                                         new Months(-4, 6, 7, 12, 12, "Tél")    };
 
             
+            string evszak = Console.ReadLine();
             foreach (var item in months_objects)
 	        {
                 item.fillList();
 
-                if (item.getEvszak() == "Tavasz")
+                if (item.getEvszak() == evszak)
 	            {
-
+                    Console.WriteLine(item.getEvszak());
+                    foreach (var t in item.getTemps())
+	                {
+                        Console.WriteLine(t);
+	                }
 	            }
                 
 	        }
