@@ -11,8 +11,10 @@ namespace Homerseklet
         private int m;
         private string monthName;
         private int[,] temperature;
-        public string evszak { get{return this.evszak};}
-        private int averageTemp, minTemp1, maxTemp1 , minTemp2, maxTemp2;
+        private int[] temps;
+        private string evszak;
+        private int minTemp1, maxTemp1 , minTemp2, maxTemp2;
+        private double averageTemp;
         
         public Months(int minTemp1, int minTemp2, int maxTemp1, int maxTemp2, int m, string evszak)
         {
@@ -23,6 +25,7 @@ namespace Homerseklet
             this.minTemp2 = minTemp2;
             this.maxTemp2 = maxTemp2;
             this.temperature = new int[30,4];
+            this.temps = new int[60];
         }
 
         public void fillList()
@@ -51,7 +54,8 @@ namespace Homerseklet
                 
                 if (this.temperature[i,1] == day)
 	            {
-                    Console.WriteLine("Hónap: {0}, Nap: {1}, Min hőmérséklet: {2}, Max hőmérséklet: {3}, Átlag hőmérséklet: {4}", this.temperature[i,0], this.temperature[i,1], this.temperature[i,2],this.temperature[i,3], (this.temperature[i,2] + this.temperature[i,3]) / 2);
+                    this.averageTemp = (Convert.ToDouble(this.temperature[i,2]) + Convert.ToDouble(this.temperature[i,3])) / 2;
+                    Console.WriteLine("Hónap: {0}, Nap: {1}, Min hőmérséklet: {2}, Max hőmérséklet: {3}, Átlag hőmérséklet: {4}", this.temperature[i,0], this.temperature[i,1], this.temperature[i,2],this.temperature[i,3], this.averageTemp);
 	            }
 			}
             
@@ -61,10 +65,15 @@ namespace Homerseklet
         {
             int min=Enumerable.Range(0, this.temperature.GetLength(0)).Select(x => this.temperature[x, 2]).Min();
             int max=Enumerable.Range(0, this.temperature.GetLength(0)).Select(x => this.temperature[x, 3]).Max();
-            int avg=(min+max)/2;
+            this.averageTemp = (Convert.ToDouble(min) + Convert.ToDouble(max)) / 2;
 
-            Console.WriteLine("Ebben a hónapban: Min hőmérséklet: {0}, Max hőmérséklet: {1}, Átlag hőmérséklet: {2}", min,max,avg);
+            Console.WriteLine("Ebben a hónapban: Min hőmérséklet: {0}, Max hőmérséklet: {1}, Átlag hőmérséklet: {2}", min,max,this.averageTemp);
             
+        }
+
+        public int[,] Temperatures()
+        {
+            this.temps[] = Enumerable.Range(0, this.temperature.GetLength(0)).Select(x => this.temperature[x, 2], this.temperature[x, 3]).ToArray();
         }
     }
 }
