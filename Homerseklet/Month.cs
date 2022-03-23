@@ -11,12 +11,13 @@ namespace Homerseklet
         private int m;
         private string monthName;
         private int[,] temperature;
-        private int[] aList;
+        public string evszak { get{return this.evszak};}
         private int averageTemp, minTemp1, maxTemp1 , minTemp2, maxTemp2;
         
-        public Months(int minTemp1, int minTemp2, int maxTemp1, int maxTemp2, int m)
+        public Months(int minTemp1, int minTemp2, int maxTemp1, int maxTemp2, int m, string evszak)
         {
             this.m = m;
+            this.evszak = evszak;
             this.minTemp1 = minTemp1;
             this.maxTemp1 = maxTemp1;
             this.minTemp2 = minTemp2;
