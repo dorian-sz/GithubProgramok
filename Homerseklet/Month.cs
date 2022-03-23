@@ -63,17 +63,23 @@ namespace Homerseklet
 
         public void getMinMaxAvgTempMonth(int month)
         {
+            double sum = 0;
             int min=Enumerable.Range(0, this.temperature.GetLength(0)).Select(x => this.temperature[x, 2]).Min();
             int max=Enumerable.Range(0, this.temperature.GetLength(0)).Select(x => this.temperature[x, 3]).Max();
-            this.averageTemp = (Convert.ToDouble(min) + Convert.ToDouble(max)) / 2;
-
-            Console.WriteLine("Ebben a hónapban: Min hőmérséklet: {0}, Max hőmérséklet: {1}, Átlag hőmérséklet: {2}", min,max,this.averageTemp);
+            for (int i = 0; i < this.temperature.GetLength(0); i++)
+			{
+                sum = sum + Convert.ToDouble(this.temperature[i,2]);
+                sum = sum + Convert.ToDouble(this.temperature[i,3]);
+			}
+            sum = sum / (this.temperature.GetLength(0)*2);
+            Console.WriteLine("Ebben a hónapban: Min hőmérséklet: {0}, Max hőmérséklet: {1}, Átlag hőmérséklet: {2}", min,max,Math.Round(sum, 1));
             
         }
 
-        public int[,] Temperatures()
+        public string getEvszak()
         {
-            this.temps[] = Enumerable.Range(0, this.temperature.GetLength(0)).Select(x => this.temperature[x, 2], this.temperature[x, 3]).ToArray();
+            return this.evszak;
         }
+
     }
 }

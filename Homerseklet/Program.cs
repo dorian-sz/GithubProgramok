@@ -32,6 +32,11 @@ namespace Homerseklet
             foreach (var item in months_objects)
 	        {
                 item.fillList();
+
+                if (item.getEvszak() == "Tavasz")
+	            {
+
+	            }
                 
 	        }
             int honap = months[Console.ReadLine()];
@@ -42,9 +47,7 @@ namespace Homerseklet
             
 
 
-            
             Console.ReadKey();
-
         }
     }
 }
