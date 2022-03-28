@@ -21,7 +21,7 @@ namespace Objektum2
 		};
 
 		public string[] Ingeridents;
-		double total;
+		decimal total;
 
 		public Smoothies(string[] ingerdient)
 		{
@@ -29,11 +29,11 @@ namespace Objektum2
 			this.total = 0;
 		}
 
-		public double GetCost()
+		public decimal GetCost()
 		{
 			foreach (var item in Ingeridents)
 			{
-				total = total + Convert.ToDouble(prices[item].Replace("$", ""));
+				total = total + Convert.ToDecimal(prices[item].Replace("$", ""));
 			}
 			return total;
 
