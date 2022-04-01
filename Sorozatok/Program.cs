@@ -26,12 +26,29 @@ namespace Sorozatok
             }
             else
             {
-                
+                c = 0;
+                d = szamok[1] / szamok[0];
+                for (int i = 0; i < szamok.Length - 1; i++)
+                {
+                    if (szamok[i+1] / szamok[i] == d)
+                    {
+                        
+                        c++;
+                    }
+                }
+                if (c == szamok.Length-1)
+	            {
+                    return "Ez egy mértani sorozat.";
+	            }
+                else
+                {
+                    return "Egyik sem.";
+                }
             }
         }
         static void Main(string[] args)
         {
-            double[] sorozat = { 1, 0, -1, -2 };
+            double[] sorozat = { 5,25,125, 625 };
             Console.WriteLine(Sorozat(sorozat));
 
             Console.ReadKey();
