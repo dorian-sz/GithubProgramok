@@ -17,7 +17,7 @@ namespace Binaris
 
         public int BinarisCount()
         {
-            return binaris.Count(f => f == '1');
+            return binaris.Count(x => x == '1');
         }
 
 
