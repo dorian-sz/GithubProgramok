@@ -10,7 +10,7 @@ namespace MenuPont
     {
         public void MenuKi()
         {
-            Console.WriteLine("Menü Pontok:\n1.Első menü.\n2.Második menü.\n3.Harmadik menü.\n4.Negyedik menü.\n5.Kilépés.");
+            Console.WriteLine("Menüpontok:\n1.Első menü.\n2.Második menü.\n3.Harmadik menü.\n4.Negyedik menü.\n5.Kilépés.");
         }
 
         public void MenuPontok(int opcio)
