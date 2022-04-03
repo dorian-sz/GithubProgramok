@@ -14,8 +14,8 @@ namespace Szamrendszer
 
             SzamrendszerValto szam = new SzamrendszerValto(Convert.ToDouble(Console.ReadLine()));
 
-            szam.Octal();
-            Console.WriteLine(szam.getEredmeny());
+            Console.WriteLine(szam.Octal());
+            Console.WriteLine(szam.BinarisSzamolas());
 
             Console.ReadKey();
         }

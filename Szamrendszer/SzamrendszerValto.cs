@@ -9,23 +9,63 @@ namespace Szamrendszer
     class SzamrendszerValto
     {
         private double TizesSzam; 
+        private double TizesSzamEredmeny;
         private string Eredmeny;
+        private Dictionary<int,string> Hexa;
         private int[] Szamok;
 
         public SzamrendszerValto(double tizesSzam)
         {
-            this.Eredmeny = "";
+            
             this.TizesSzam = tizesSzam;
             this.Szamok = new int[] { 128, 64, 32, 16, 8, 4, 2, 1 };
         }
 
-        public void BinarisSzamolas()
+        public string BinarisSzamolas()
         {
+            this.Eredmeny = "";
+            this.TizesSzamEredmeny = this.TizesSzam;
             for (int i = 0; i < this.Szamok.Length; i++)
             {
-                if (this.TizesSzam - this.Szamok[i] >= 0)
+                if (this.TizesSzamEredmeny - this.Szamok[i] >= 0)
                 {
-                    this.TizesSzam = this.TizesSzam - this.Szamok[i];
+                    this.TizesSzamEredmeny = this.TizesSzamEredmeny - this.Szamok[i];
+                    this.Eredmeny += "1 ";
+                }
+                else
+                {
+                    this.Eredmeny += "0 ";
+                }
+            }
+            return this.Eredmeny;
+        }
+
+        public string Octal()
+        {
+            this.Eredmeny = "";
+            this.TizesSzamEredmeny = this.TizesSzam;
+            if (this.TizesSzam == 0)
+	        {
+               this.Eredmeny = "0";
+	        }
+            while (this.TizesSzamEredmeny > 0)
+            {
+                this.Eredmeny = Convert.ToString(this.TizesSzamEredmeny % 8) + this.Eredmeny;
+                this.TizesSzamEredmeny = Math.Floor(this.TizesSzamEredmeny / 8.0);
+
+            }
+            return this.Eredmeny;
+        }
+
+        public string Hex()
+        {
+            this.Eredmeny = "";
+
+            for (int i = 0; i < this.Szamok.Length; i++)
+            {
+                if (this.TizesSzamEredmeny - this.Szamok[i] >= 0)
+                {
+                    this.TizesSzamEredmeny = this.TizesSzamEredmeny - this.Szamok[i];
                     this.Eredmeny += "1 ";
                 }
                 else
@@ -34,22 +74,6 @@ namespace Szamrendszer
                 }
             }
         }
-        public string getEredmeny()
-        {
-            return String.Format("Kettes számrendszeri értéke: {0}", this.Eredmeny);
-        }
 
-        public void Octal()
-        {
-            while (TizesSzam > 0)
-            {
-                Console.WriteLine("Eredmeny: {0}, TizesSzam: {1}", this.Eredmeny, this.TizesSzam);
-
-                this.Eredmeny += Convert.ToString(this.TizesSzam % 8);
-                this.TizesSzam = Math.Floor(this.TizesSzam / 8.0);
-
-            }
-           
-        }
     }
 }
