@@ -9,9 +9,8 @@ namespace Homerseklet
     class Months
     {
         private int m;
-        private string monthName;
         private int[,] temperature;
-        private int[] temps;
+        private List<int> temps;
         private string evszak;
         private int minTemp1, maxTemp1 , minTemp2, maxTemp2;
         private double averageTemp;
@@ -25,7 +24,7 @@ namespace Homerseklet
             this.minTemp2 = minTemp2;
             this.maxTemp2 = maxTemp2;
             this.temperature = new int[30,4];
-            this.temps = new int[2];
+            this.temps = new List<int>();
         }
 
         public void fillList()
@@ -55,7 +54,7 @@ namespace Homerseklet
                 if (this.temperature[i,1] == day)
 	            {
                     this.averageTemp = (Convert.ToDouble(this.temperature[i,2]) + Convert.ToDouble(this.temperature[i,3])) / 2;
-                    Console.WriteLine("Hónap: {0}, Nap: {1}, Min hőmérséklet: {2}, Max hőmérséklet: {3}, Átlag hőmérséklet: {4}", this.temperature[i,0], this.temperature[i,1], this.temperature[i,2],this.temperature[i,3], this.averageTemp);
+                    Console.WriteLine("Ebben a hónapban: {0}, Ezen a napon: {1}, Min hőmérséklet: {2}, Max hőmérséklet: {3}, Átlag hőmérséklet: {4}", this.temperature[i,0], this.temperature[i,1], this.temperature[i,2],this.temperature[i,3], this.averageTemp);
 	            }
 			}
             
@@ -72,7 +71,7 @@ namespace Homerseklet
                 sum = sum + Convert.ToDouble(this.temperature[i,3]);
 			}
             sum = sum / (this.temperature.GetLength(0)*2);
-            Console.WriteLine("Ebben a hónapban: Min hőmérséklet: {0}, Max hőmérséklet: {1}, Átlag hőmérséklet: {2}", min,max,Math.Round(sum, 1));
+            Console.WriteLine("Ebben a hónapban: {0}, Min hőmérséklet: {1}, Max hőmérséklet: {2}, Átlag hőmérséklet: {3}", month, min,max,Math.Round(sum, 1));
             
         }
 
@@ -81,9 +80,16 @@ namespace Homerseklet
             return this.evszak;
         }
 
-        public int[] getTemps()
+        public List<int> getTemps()
         {
-            return Enumerable.Range(0, this.temperature.GetLength(0)).Select(x => this.temperature[x, 2]).ToArray();            
+            for (int i = 0; i < this.temperature.GetLength(0); i++)
+			{
+                this.temps.Add(this.temperature[i,2]);
+                this.temps.Add(this.temperature[i,3]);
+                
+			}
+
+            return this.temps;
         }
     }
 }
