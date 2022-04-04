@@ -16,7 +16,7 @@ namespace Szamrendszer
 
             Console.WriteLine(szam.Octal());
             Console.WriteLine(szam.BinarisSzamolas());
-
+            szam.Hex();
             Console.ReadKey();
         }
     }

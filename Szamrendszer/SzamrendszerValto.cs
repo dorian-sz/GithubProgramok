@@ -11,7 +11,8 @@ namespace Szamrendszer
         private double TizesSzam; 
         private double TizesSzamEredmeny;
         private string Eredmeny;
-        private Dictionary<int,string> Hexa;
+        private string Eredmeny2;
+        private Dictionary<int,string> HexDic;
         private int[] Szamok;
 
         public SzamrendszerValto(double tizesSzam)
@@ -19,6 +20,7 @@ namespace Szamrendszer
             
             this.TizesSzam = tizesSzam;
             this.Szamok = new int[] { 128, 64, 32, 16, 8, 4, 2, 1 };
+            this.HexDic = new Dictionary<int, string> { { 0, "8"},{ 1, "4"},{ 2, "2"},{ 3, "1"}, { 10, "A"},{ 11, "B"},{ 12, "C"},{ 13, "D"},{ 14, "E"},{ 15, "F"} };
         }
 
         public string BinarisSzamolas()
@@ -43,6 +45,7 @@ namespace Szamrendszer
         public string Octal()
         {
             this.Eredmeny = "";
+
             this.TizesSzamEredmeny = this.TizesSzam;
             if (this.TizesSzam == 0)
 	        {
@@ -57,22 +60,40 @@ namespace Szamrendszer
             return this.Eredmeny;
         }
 
-        public string Hex()
+        public void Hex()
         {
             this.Eredmeny = "";
+            this.Eredmeny2 = "";
 
             for (int i = 0; i < this.Szamok.Length; i++)
             {
                 if (this.TizesSzamEredmeny - this.Szamok[i] >= 0)
                 {
                     this.TizesSzamEredmeny = this.TizesSzamEredmeny - this.Szamok[i];
-                    this.Eredmeny += "1 ";
+                    if (this.Eredmeny.Length <= 4)
+	                {
+                        this.Eredmeny += "1";
+	                }
+                    else
+	                {
+                        this.Eredmeny2 += "1";
+	                }
+                    
                 }
                 else
                 {
-                    this.Eredmeny += "0 ";
+                    if (this.Eredmeny.Length <= 4)
+	                {
+                        this.Eredmeny += "0";
+	                }
+                    else
+	                {
+                        this.Eredmeny2 = "0";
+	                }
                 }
             }
+
+            Console.WriteLine("{0}, {1}",this.Eredmeny, this.Eredmeny2);
         }
 
     }
