@@ -6,24 +6,47 @@ using System.Threading.Tasks;
 
 namespace Elagazas
 {
-    class Program
+    class Elagazas
     {
-        static void Main(string[] args)
+        private List<int> Szamok;
+        Random rnd;
+
+        public Elagazas()
         {
-            List<int> Szamok = new List<int>();
-            Random rnd = new Random();
+            Szamok = new List<int>();
+            rnd = new Random();
+        }
+
+        public void Feltolt()
+        {
             for (int i = 0; i < 15; i++)
             {
-                Szamok.Add(rnd.Next(10, 100));
+                this.Szamok.Add(this.rnd.Next(10, 100));
             }
+        }
 
-            foreach (var item in Szamok)
+        public void Kiir()
+        {
+            foreach (var item in this.Szamok)
             {
-                if (item%2 == 0)
+                if (item % 2 == 0)
                 {
                     Console.WriteLine("Szám: {0}", item);
                 }
             }
+
+        }
+    }
+
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Elagazas elagazas = new Elagazas();
+
+            elagazas.Feltolt();
+            elagazas.Kiir();
 
             Console.ReadKey();
         }
