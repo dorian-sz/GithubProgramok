@@ -12,6 +12,7 @@ namespace Szamrendszer
         private double TizesSzamEredmeny;
         private string Eredmeny;
         private string Eredmeny2;
+        private int HexEredmeny;
         private Dictionary<int,string> HexDic;
         private int[] Szamok;
 
@@ -60,17 +61,18 @@ namespace Szamrendszer
             return this.Eredmeny;
         }
 
-        public void Hex()
+        public string Hex()
         {
             this.Eredmeny = "";
             this.Eredmeny2 = "";
-
+            this.TizesSzamEredmeny = this.TizesSzam;
             for (int i = 0; i < this.Szamok.Length; i++)
             {
                 if (this.TizesSzamEredmeny - this.Szamok[i] >= 0)
                 {
                     this.TizesSzamEredmeny = this.TizesSzamEredmeny - this.Szamok[i];
-                    if (this.Eredmeny.Length <= 4)
+
+                    if (this.Eredmeny.Length < 4)
 	                {
                         this.Eredmeny += "1";
 	                }
@@ -82,18 +84,54 @@ namespace Szamrendszer
                 }
                 else
                 {
-                    if (this.Eredmeny.Length <= 4)
+                    if (this.Eredmeny.Length < 4)
 	                {
                         this.Eredmeny += "0";
 	                }
                     else
 	                {
-                        this.Eredmeny2 = "0";
+                        this.Eredmeny2 += "0";
 	                }
                 }
             }
+            for (int i = 0; i < this.Eredmeny.Length; i++)
+			{
+                if (this.Eredmeny[i] == '1')
+	            {
+                    this.HexEredmeny += Convert.ToInt32(this.HexDic[i]);
+	            }
 
-            Console.WriteLine("{0}, {1}",this.Eredmeny, this.Eredmeny2);
+			}
+
+            if (this.HexEredmeny >= 10)
+	        {
+                this.Eredmeny = this.HexDic[this.HexEredmeny];
+	        }
+            else
+	        {
+                this.Eredmeny = Convert.ToString(this.HexEredmeny);
+	        }
+
+            this.HexEredmeny = 0;
+            for (int i = 0; i < this.Eredmeny2.Length; i++)
+			{
+                if (this.Eredmeny2[i] == '1')
+	            {
+                    this.HexEredmeny += Convert.ToInt32(this.HexDic[i]);
+	            }
+
+			}
+
+            if (this.HexEredmeny >= 10)
+	        {
+                this.Eredmeny += this.HexDic[this.HexEredmeny];
+	        }
+            else
+	        {
+                this.Eredmeny += Convert.ToString(this.HexEredmeny);
+	        }
+
+            return this.Eredmeny;
         }
 
     }
