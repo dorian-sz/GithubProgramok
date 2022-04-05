@@ -9,12 +9,12 @@ namespace ForAndForeach
     class ForAndForeach
     {
         private List<int> Szamok;
-        Random rnd;
+        private Random rnd;
 
         public ForAndForeach()
         {
-            Szamok = new List<int>();
-            rnd = new Random();
+            this.Szamok = new List<int>();
+            this.rnd = new Random();
         }
 
         public void Feltolt()
