@@ -14,12 +14,6 @@ namespace BastyaSakkTabla
             Board chessboard = new Board();
             chessboard.PlaceRook();
 
-            foreach (var item in chessboard.GetBoard())
-            {
-                Console.WriteLine(item);
-            }
-
-
             Console.ReadKey();
         }
     }

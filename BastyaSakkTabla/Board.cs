@@ -8,32 +8,23 @@ namespace BastyaSakkTabla
 {
     class Board
     {
-        private int[] board;
+        private int[,] board;
 
         public Board()
         {
-            this.board = new int[64];
+            this.board = new int[8,8];
         }
 
         public void PlaceRook()
         {
-            for (int i = 0; i < this.board.Length; i++)
+            this.board[2,0] = 1;
+            for (int i = 0; i < this.board.GetLength(0); i++)
             {
-                if (this.board[i] != 1)
-                {
-                    this.board[i] = 1;
-                    for (int j = 0; j < this.board.Length; j+=8)
-                    {
-                        this.board[j] = 1;
-                    }
-                }
+                for (int j = 0; j < this.board.GetLength(1); j++)
+			    {
+                    Console.WriteLine("index1 {0}, index2 {1}, val {2}",i,j,this.board[i,j]);
+			    }
             }
         }
-
-        public int[] GetBoard()
-        {
-            return this.board;
-        }
-
     }
 }
