@@ -4,9 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MatrixBill
-{
-    class Matrix
+namespace MatrixBill2
+{    class Matrix
     {
         private int[,] matrix;
         private int xIndex, yIndex;
@@ -29,6 +28,7 @@ namespace MatrixBill
                 }
                 else
                 {
+                    
                     this.yIndex++;
                     this.xIndex = 0;
                     this.matrix[this.yIndex, this.xIndex] = n;
@@ -43,6 +43,14 @@ namespace MatrixBill
         public int[,] GetMatrix()
         {
             return this.matrix;
+        }
+
+        public void RowOut()
+        {
+            for (int i = 0; i < this.matrix.GetLength(1); i++)
+            {
+                Console.Write("{0} ", this.matrix[this.yIndex, i]);
+            }
         }
     }
 
@@ -61,7 +69,7 @@ namespace MatrixBill
                     Console.WriteLine("Ajda meg a számot:");
                     n = Convert.ToInt32(Console.ReadLine());
                     m.AddElement(n);
-                    
+
                 }
             }
 
@@ -70,7 +78,7 @@ namespace MatrixBill
             {
                 for (int j = 0; j < m.GetMatrix().GetLength(1); j++)
                 {
-                    Console.Write("{0} ",m.GetMatrix()[i, j]);
+                    Console.Write("{0} ", m.GetMatrix()[i, j]);
                 }
                 Console.Write(Environment.NewLine);
             }
