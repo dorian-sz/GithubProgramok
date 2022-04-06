@@ -19,7 +19,7 @@ namespace Homerseklet
 
             Months[] months_objects = { new Months(-12, -5, -4, 5, 1, "Tél"),
                                         new Months(-10, -6, -5, 2, 2, "Tél"),
-                                        new Months(-5, 3, 4, 15, 3, "Tavasz"),
+                                        new Months(-5, 5, 6, 18, 3, "Tavasz"),
                                         new Months(4, 9, 10, 24, 4, "Tavasz"),
                                         new Months(6, 9, 10, 26, 5, "Tavasz"),
                                         new Months(10, 14, 15, 29, 6, "Nyár"),
