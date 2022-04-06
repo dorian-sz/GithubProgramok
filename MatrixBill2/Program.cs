@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MatrixBill2
-{    class Matrix
+{    class Matrix : RowOut
     {
         private int[,] matrix;
         private int xIndex, yIndex;
@@ -25,10 +25,13 @@ namespace MatrixBill2
                 {
                     this.matrix[this.yIndex, this.xIndex] = n;
                     this.xIndex++;
+                    if (this.xIndex == this.matrix.GetLength(1))
+                    {
+                        this.Row(this.GetMatrix(), this.yIndex);
+                    }
                 }
                 else
                 {
-                    
                     this.yIndex++;
                     this.xIndex = 0;
                     this.matrix[this.yIndex, this.xIndex] = n;
@@ -39,18 +42,25 @@ namespace MatrixBill2
             {
                 Console.WriteLine("Mátrix tele van.");
             }
+
         }
         public int[,] GetMatrix()
         {
             return this.matrix;
         }
 
-        public void RowOut()
+    }
+
+    class RowOut
+    {
+
+        public void Row(int[,] m, int y)
         {
-            for (int i = 0; i < this.matrix.GetLength(1); i++)
+            for (int i = 0; i < m.GetLength(1); i++)
             {
-                Console.Write("{0} ", this.matrix[this.yIndex, i]);
+                Console.Write("{0} ", m[y, i]);
             }
+            Console.Write(Environment.NewLine + Environment.NewLine);
         }
     }
 
