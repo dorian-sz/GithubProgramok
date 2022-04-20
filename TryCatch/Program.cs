@@ -11,6 +11,7 @@ namespace TryCatch
         static void Main(string[] args)
         {
             bool repeat = true;
+            Console.WriteLine("Adjon meg egy számt.");
             while (repeat)
             {
                 try
@@ -20,7 +21,7 @@ namespace TryCatch
                 }
                 catch (FormatException)
                 {
-                    Console.WriteLine("Számot adj meg.");
+                    Console.WriteLine("Számot adjon meg.");
                     repeat = true;
                 }
             }
