@@ -34,7 +34,6 @@ namespace Matrix4
                     {
                         this.matrix[this.xIndex, this.yIndex] = this.val;
                     }
-                    
                 }
             }
             else
@@ -68,7 +67,6 @@ namespace Matrix4
                     {
                         return true;
                     }
-
                 }
             }
             return false;
