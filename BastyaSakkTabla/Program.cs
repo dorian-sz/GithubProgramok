@@ -13,7 +13,7 @@ namespace BastyaSakkTabla
 
             Board chessboard = new Board();
             chessboard.PlaceRook();
-
+            chessboard.BoardOut();
             Console.ReadKey();
         }
     }

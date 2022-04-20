@@ -19,11 +19,28 @@ namespace BastyaSakkTabla
         {
             this.board[2,0] = 1;
             for (int i = 0; i < this.board.GetLength(0); i++)
-            {
+			{
                 for (int j = 0; j < this.board.GetLength(1); j++)
 			    {
-                    Console.WriteLine("index1 {0}, index2 {1}, val {2}",i,j,this.board[i,j]);
+                    if (this.board[i,j] == 1)
+	                {
+                        Console.WriteLine("{0}, {1}", i,j);
+                        this.board[i, j] = 
+	                }
 			    }
+			}
+
+        }
+
+        public void BoardOut()
+        {
+            for (int i = 0; i < this.board.GetLength(0); i++)
+            {
+                for (int j = 0; j < this.board.GetLength(1); j++)
+                {
+                    Console.Write("{0} ", this.board[i, j]);
+                }
+                Console.Write(Environment.NewLine);
             }
         }
     }
