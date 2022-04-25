@@ -9,7 +9,7 @@ namespace MatrixBill3
     class Matrix : Index
     {
         private int[,] matrix;
-        private int xIndex, yIndex;
+        private int xIndex, yIndex, pxIndex, pyIndex;
 
         public Matrix(int sizex, int sizey)
         {
@@ -25,7 +25,13 @@ namespace MatrixBill3
                 if (this.xIndex < this.matrix.GetLength(1))
                 {
                     this.matrix[this.yIndex, this.xIndex] = n;
-                    this.IndexOut(this.xIndex, this.yIndex);
+                    this.pyIndex = this.yIndex;
+                    this.pxIndex = this.xIndex;
+                    if (this.pxIndex == this.xIndex && this.pyIndex = this.yIndex)
+	                {
+                        this.IndexOut(this.xIndex, this.yIndex);
+	                }
+                    
                     this.xIndex++;
                 }
                 else
@@ -43,10 +49,14 @@ namespace MatrixBill3
             }
 
         }
+
+        public int YIndex()
+
         public int[,] GetMatrix()
         {
             return this.matrix;
         }
+
 
     }
 
@@ -55,7 +65,7 @@ namespace MatrixBill3
 
         public void IndexOut(int x, int y)
         {
-            Console.WriteLine("Indexe: {0}, {1}",y, x);
+            Console.WriteLine("Ez az index: {0}, {1} már foglalt.",y, x);
         }
     }
 
