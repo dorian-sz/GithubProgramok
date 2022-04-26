@@ -30,7 +30,7 @@ namespace Matrix4
                     }
                     else
                     {
-                         Console.WriteLine("Ezen az indexen már van érték. Adjon meg új indexet és értéket.");
+                         Console.WriteLine("Ezen az indexen már van érték. Adjon meg új indexet és értéket");
                     }	                
 
                 }
