@@ -9,7 +9,6 @@ namespace Matrix4
     class Matrix
     {
         private string[,] matrix;
-        private List<int> prevIndex;
         private int xIndex, yIndex;
         private string val;
 
@@ -17,9 +16,6 @@ namespace Matrix4
         public Matrix(int sizex, int sizey)
         {
             this.matrix = new string[sizey, sizex];
-            this.prevIndex = new int[sizey * sizex, 2];
-            this.prevX = -2;
-            this.prevY = -2;
         }
 
         public void AddElement()
@@ -28,14 +24,15 @@ namespace Matrix4
             {
                 if (this.xIndex < this.matrix.GetLength(1))
                 {
-                    if (this.xIndex == this.prevX && this.yIndex == this.prevY)
-                    {
-                        Console.WriteLine("Ezen az indexen már van érték. Adjon meg új indexet és értéket.");
-                    }
-                    else
+                    if (this.matrix[this.xIndex,this.yIndex] == null)
                     {
                         this.matrix[this.xIndex, this.yIndex] = this.val;
                     }
+                    else
+                    {
+                         Console.WriteLine("Ezen az indexen már van érték. Adjon meg új indexet és értéket.");
+                    }	                
+
                 }
             }
             else
@@ -54,11 +51,7 @@ namespace Matrix4
             this.val = Convert.ToString(indexval.Split(',')[2]);
 
         }
-        public void SetPrevIndexes()
-        {
-            this.prevIndex.Add()
 
-        }
         public bool isEmpty()
         {
             for (int i = 0; i < this.matrix.GetLength(0); i++)
@@ -103,7 +96,6 @@ namespace Matrix4
                 IndVal = Console.ReadLine();
                 m.SetIndexAndValue(IndVal);
                 m.AddElement();
-                m.SetPrevIndexes();
             }
 
             m.MatrixOut();
