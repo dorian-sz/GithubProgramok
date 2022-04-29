@@ -9,8 +9,8 @@ namespace Matrix4
     class Matrix
     {
         private string[,] matrix;
-        private List<int> prevIndex;
-        private int xIndex, yIndex;
+        private int[,] prevIndex;
+        private int xIndex, yIndex, ind;
         private string val;
 
 
@@ -18,6 +18,7 @@ namespace Matrix4
         {
             this.matrix = new string[sizey, sizex];
             this.prevIndex = new int[sizey * sizex, 2];
+            this.ind = 0;
             this.prevX = -2;
             this.prevY = -2;
         }
@@ -56,7 +57,8 @@ namespace Matrix4
         }
         public void SetPrevIndexes()
         {
-            this.prevIndex.Add()
+            this.prevIndex[ind] = {this.xIndex, this.yIndex};
+            this.ind++;
 
         }
         public bool isEmpty()
