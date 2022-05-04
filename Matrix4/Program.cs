@@ -29,14 +29,15 @@ namespace Matrix4
             {
                 if (this.xIndex < this.matrix.GetLength(1))
                 {
-                    if (this.xIndex == this.prevX && this.yIndex == this.prevY)
-                    {
-                        Console.WriteLine("Ezen az indexen már van érték. Adjon meg új indexet és értéket.");
-                    }
-                    else
+                    if (this.matrix[this.xIndex,this.yIndex] == null)
                     {
                         this.matrix[this.xIndex, this.yIndex] = this.val;
                     }
+                    else
+                    {
+                         Console.WriteLine("Ezen az indexen már van érték. Adjon meg új indexet és értéket");
+                    }	                
+
                 }
             }
             else
@@ -60,7 +61,6 @@ namespace Matrix4
             this.prevIndex[ind] = {this.xIndex, this.yIndex};
             this.ind++;
 
-        }
         public bool isEmpty()
         {
             for (int i = 0; i < this.matrix.GetLength(0); i++)
@@ -105,7 +105,6 @@ namespace Matrix4
                 IndVal = Console.ReadLine();
                 m.SetIndexAndValue(IndVal);
                 m.AddElement();
-                m.SetPrevIndexes();
             }
 
             m.MatrixOut();
