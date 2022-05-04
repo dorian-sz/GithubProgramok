@@ -19,6 +19,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegySzog", "NegySzog\NegySz
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NegySzogTeszt", "NegySzogTeszt\NegySzogTeszt.csproj", "{9C557E06-A94A-490C-A376-44FC38FC6FEC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OszhatosagiGep", "OszhatosagiGep\OszhatosagiGep.csproj", "{A708A94B-338A-4B7D-BC98-FA0337137E07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OszthatosagiGepTeszt", "OszthatosagiGepTeszt\OszthatosagiGepTeszt.csproj", "{A7B8037B-E211-4D7B-80B9-63CA46451505}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,14 @@ Global
 		{9C557E06-A94A-490C-A376-44FC38FC6FEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C557E06-A94A-490C-A376-44FC38FC6FEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C557E06-A94A-490C-A376-44FC38FC6FEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A708A94B-338A-4B7D-BC98-FA0337137E07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A708A94B-338A-4B7D-BC98-FA0337137E07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A708A94B-338A-4B7D-BC98-FA0337137E07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A708A94B-338A-4B7D-BC98-FA0337137E07}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B8037B-E211-4D7B-80B9-63CA46451505}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B8037B-E211-4D7B-80B9-63CA46451505}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B8037B-E211-4D7B-80B9-63CA46451505}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B8037B-E211-4D7B-80B9-63CA46451505}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
