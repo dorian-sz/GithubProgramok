@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OszhatosagiGep", "Oszhatosa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OszthatosagiGepTeszt", "OszthatosagiGepTeszt\OszthatosagiGepTeszt.csproj", "{A7B8037B-E211-4D7B-80B9-63CA46451505}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Henger", "Henger\Henger.csproj", "{7DA17ECA-4176-47D1-8046-8ECD4DEFEC40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HengerTeszt", "HengerTeszt\HengerTeszt.csproj", "{0898F26E-677A-415A-AE92-2DA3FF5EF369}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{A7B8037B-E211-4D7B-80B9-63CA46451505}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7B8037B-E211-4D7B-80B9-63CA46451505}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7B8037B-E211-4D7B-80B9-63CA46451505}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DA17ECA-4176-47D1-8046-8ECD4DEFEC40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DA17ECA-4176-47D1-8046-8ECD4DEFEC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DA17ECA-4176-47D1-8046-8ECD4DEFEC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DA17ECA-4176-47D1-8046-8ECD4DEFEC40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0898F26E-677A-415A-AE92-2DA3FF5EF369}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0898F26E-677A-415A-AE92-2DA3FF5EF369}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0898F26E-677A-415A-AE92-2DA3FF5EF369}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0898F26E-677A-415A-AE92-2DA3FF5EF369}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
