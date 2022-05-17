@@ -10,10 +10,10 @@ namespace Henger
     {
         static void Main(string[] args)
         {
-            Henger h = new Henger();
+            Hengerclass h = new Hengerclass();
 
-            h.setMagas();
             h.setSugar();
+            h.setMagas();
 
             Console.WriteLine(h.getKerulet());
             Console.WriteLine(h.getTerulet());

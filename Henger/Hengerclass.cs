@@ -6,23 +6,37 @@ using System.Threading.Tasks;
 
 namespace Henger
 {
-    class Henger
+    public class ConsoleInRetriever
+    {
+        public virtual double setSugar()
+        {
+            return Convert.ToDouble(Console.ReadLine());
+        }
+        public virtual double setMagas()
+        {
+            return Convert.ToDouble(Console.ReadLine());
+        }
+    }
+    public class Hengerclass : ConsoleInRetriever
     {
         public double magassag;
         public double sugar;
-
-        public void setSugar()
+        public Hengerclass()
         {
-            this.sugar = Convert.ToDouble(Console.ReadLine());
+
         }
 
-        public void setMagas()
+        public override double setSugar()
         {
-            this.magassag = Convert.ToDouble(Console.ReadLine());
+            return this.sugar = Convert.ToDouble(Console.ReadLine());
+        }
+        public override double setMagas()
+        {
+            return this.magassag = Convert.ToDouble(Console.ReadLine());
         }
         public double getKerulet()
         {
-            return 2 * Math.PI * this.sugar; 
+            return Math.Round(2 * Math.PI * this.sugar,2); 
         }
 
         public double getTerulet()

@@ -11,11 +11,18 @@ namespace HengerTeszt
 
         public void KeruletTeszt()
         {
+            Hengerclass h = new Hengerclass();
+            h.setMagas();
+            h.setSugar();
+
             //Arrange
-            double vartEredmeny = 31.4159265358979;
+            double vartEredmeny = 31.42;
 
             //Act
-            double kapottEredmeny = 
+            double kapottEredmeny = h.getKerulet();
+
+            Assert.AreEqual(kapottEredmeny, vartEredmeny);
+
         }
     }
 }
