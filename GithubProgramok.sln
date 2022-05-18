@@ -27,6 +27,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Henger", "Henger\Henger.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HengerTeszt", "HengerTeszt\HengerTeszt.csproj", "{0898F26E-677A-415A-AE92-2DA3FF5EF369}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rekordok", "Rekordok\Rekordok.csproj", "{9722A8A6-AE84-4BCA-93C5-43BC2479084A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutokLista", "AutokLista\AutokLista.csproj", "{51A59493-A4AF-449F-8DCA-D0D4DB174705}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +85,14 @@ Global
 		{0898F26E-677A-415A-AE92-2DA3FF5EF369}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0898F26E-677A-415A-AE92-2DA3FF5EF369}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0898F26E-677A-415A-AE92-2DA3FF5EF369}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9722A8A6-AE84-4BCA-93C5-43BC2479084A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9722A8A6-AE84-4BCA-93C5-43BC2479084A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9722A8A6-AE84-4BCA-93C5-43BC2479084A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9722A8A6-AE84-4BCA-93C5-43BC2479084A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51A59493-A4AF-449F-8DCA-D0D4DB174705}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51A59493-A4AF-449F-8DCA-D0D4DB174705}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51A59493-A4AF-449F-8DCA-D0D4DB174705}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51A59493-A4AF-449F-8DCA-D0D4DB174705}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
