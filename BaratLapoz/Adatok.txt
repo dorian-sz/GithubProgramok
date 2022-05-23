@@ -1,0 +1,4 @@
+﻿Asd Dsa,2022/05/18,férfi,5
+DSA Sda,2022/05/18,nő,8
+Assd Dsda,2022/05/18,férfi,5
+DasSA Sddsaa,2022/05/18,nő,8
