@@ -10,17 +10,22 @@ namespace BaratLapoz
     class BaratRekord
     {
         private string[,] baratRekord;
+        private string filename;
+        private int recordNum;
 
         public BaratRekord(string file)
         {
             this.baratRekord = new string[File.ReadLines(file).Count(), 4];
+            this.filename = file;
+            this.recordNum = 0;
         }
 
-        public void readFile(string file)
+        public void readFile()
         {
             int count = 0;
-            foreach (string line in File.ReadLines(file))
+            foreach (string line in File.ReadLines(this.filename))
             {
+                Console.WriteLine(line);
                 for (int i = 0; i < line.Split(',').Length; i++)
                 {
                     this.baratRekord[count, i] = line.Split(',')[i];
@@ -33,12 +38,15 @@ namespace BaratLapoz
 
         public void outFile()
         {
-            Console.WriteLine("{0} {1,5} {2,25} {3,10} {4,15}\n", "Rekord", "Név", "Születési Dátum", "Nem", "Bulizás");
-            for (int i = 0; i < this.baratRekord.GetLength(0); i++)
-            {
-                Console.Write("{0} {1,14} {2,16} {3,17} {4,10}\n\n", i + 1, this.baratRekord[i, 0], this.baratRekord[i, 1], this.baratRekord[i, 2], this.baratRekord[i, 3]);
+            int page = 1;
 
-            }
+            Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum, this.baratRekord[this.recordNum, 0], this.baratRekord[this.recordNum, 1], this.baratRekord[this.recordNum, 2], this.baratRekord[this.recordNum, 3]);
+
+            if (this.recordNum < 20 && this.recordNum < this.baratRekord.GetLength(0))
+	        {
+                this.recordNum++;
+                outFile();
+	        }
         }
     }
     class Program
@@ -49,7 +57,7 @@ namespace BaratLapoz
             string filename = Console.ReadLine();
             BaratRekord br = new BaratRekord(@"C:\Users\2021302\Source\Repos\dorian-sz\GithubProgramok\BaratLapoz\" + filename + ".txt");
 
-            br.readFile(@"C:\Users\2021302\Source\Repos\dorian-sz\GithubProgramok\Rekordok\" + filename + ".txt");
+            br.readFile();
             br.outFile();
 
             Console.ReadKey();
