@@ -36,18 +36,28 @@ namespace BaratLapoz
             Console.WriteLine("Olvasás befejezve.\n");
         }
 
-        public void outFile()
+        public void outFilePgUp()
         {
-            int page = 1;
-
             Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum, this.baratRekord[this.recordNum, 0], this.baratRekord[this.recordNum, 1], this.baratRekord[this.recordNum, 2], this.baratRekord[this.recordNum, 3]);
+            this.recordNum++;
 
-            if (this.recordNum < 20 && this.recordNum < this.baratRekord.GetLength(0))
+            if (this.recordNum % 20 != 0 && this.recordNum < this.baratRekord.GetLength(0))
 	        {
-                this.recordNum++;
                 outFile();
 	        }
         }
+
+        public void outFilePgDn()
+        {
+            Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum, this.baratRekord[this.recordNum, 0], this.baratRekord[this.recordNum, 1], this.baratRekord[this.recordNum, 2], this.baratRekord[this.recordNum, 3]);
+            this.recordNum--;
+
+            if (this.recordNum % 20 != 0 && this.recordNum < this.baratRekord.GetLength(0))
+	        {
+                outFile();
+	        }
+        }
+
     }
     class Program
     {
@@ -59,6 +69,14 @@ namespace BaratLapoz
 
             br.readFile();
             br.outFile();
+            while (true)
+	        {
+                if (Console.ReadKey() == Keys.Pageup)
+	            {
+
+	            }
+                Console.Clear();
+	        }
 
             Console.ReadKey();
         }
