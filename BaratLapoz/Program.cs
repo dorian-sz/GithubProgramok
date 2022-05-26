@@ -43,7 +43,7 @@ namespace BaratLapoz
 
             if (this.recordNum % 20 != 0 && this.recordNum < this.baratRekord.GetLength(0))
 	        {
-                outFile();
+                this.outFilePgUp();
 	        }
         }
 
@@ -54,7 +54,7 @@ namespace BaratLapoz
 
             if (this.recordNum % 20 != 0 && this.recordNum < this.baratRekord.GetLength(0))
 	        {
-                outFile();
+                this.outFilePgDn();
 	        }
         }
 
@@ -66,16 +66,16 @@ namespace BaratLapoz
             Console.WriteLine("Adja meg a fájl nevét.");
             string filename = Console.ReadLine();
             BaratRekord br = new BaratRekord(@"C:\Users\2021302\Source\Repos\dorian-sz\GithubProgramok\BaratLapoz\" + filename + ".txt");
-
             br.readFile();
-            br.outFile();
+            
             while (true)
 	        {
-                if (Console.ReadKey() == Keys.Pageup)
+                if (Console.ReadKey().Key == ConsoleKey.PageUp)
 	            {
-
+                   Console.Clear();
+                   br.outFilePgUp();
 	            }
-                Console.Clear();
+                
 	        }
 
             Console.ReadKey();
