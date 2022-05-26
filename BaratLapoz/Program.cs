@@ -17,7 +17,7 @@ namespace BaratLapoz
         {
             this.baratRekord = new string[File.ReadLines(file).Count(), 4];
             this.filename = file;
-            this.recordNum = -1;
+            this.recordNum = 0;
         }
 
         public void readFile()
@@ -36,11 +36,19 @@ namespace BaratLapoz
         }
 
         public void outFilePgUp()
-        {
-            this.recordNum++;
-            Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum, this.baratRekord[this.recordNum, 0], this.baratRekord[this.recordNum, 1], this.baratRekord[this.recordNum, 2], this.baratRekord[this.recordNum, 3]);
+        {   
+            try 
+	        {	        
+		        this.recordNum++;
+                Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum, this.baratRekord[this.recordNum, 0], this.baratRekord[this.recordNum, 1], this.baratRekord[this.recordNum, 2], this.baratRekord[this.recordNum, 3]);
+	        }
+	        catch (IndexOutOfRangeException)
+	        {
+
+		        throw;
+	        }
             
-            if (this.recordNum == 0 && this.recordNum % 21 != 0 && this.recordNum < this.baratRekord.GetLength(0))
+            if (this.recordNum % 21 != 0 && this.recordNum < this.baratRekord.GetLength(0))
 	        {
                 this.outFilePgUp();
 	        }
@@ -75,7 +83,7 @@ namespace BaratLapoz
                    Console.Clear();
                    br.outFilePgUp();
 	            }
-                                if (Console.ReadKey().Key == ConsoleKey.PageDown)
+                if (Console.ReadKey().Key == ConsoleKey.PageDown)
 	            {
                    Console.Clear();
                    br.outFilePgDn();
