@@ -17,7 +17,7 @@ namespace BaratLapoz
         {
             this.baratRekord = new string[File.ReadLines(file).Count(), 4];
             this.filename = file;
-            this.recordNum = 0;
+            this.recordNum = -1;
         }
 
         public void readFile()
@@ -25,7 +25,6 @@ namespace BaratLapoz
             int count = 0;
             foreach (string line in File.ReadLines(this.filename))
             {
-                Console.WriteLine(line);
                 for (int i = 0; i < line.Split(',').Length; i++)
                 {
                     this.baratRekord[count, i] = line.Split(',')[i];
@@ -38,21 +37,22 @@ namespace BaratLapoz
 
         public void outFilePgUp()
         {
-            Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum, this.baratRekord[this.recordNum, 0], this.baratRekord[this.recordNum, 1], this.baratRekord[this.recordNum, 2], this.baratRekord[this.recordNum, 3]);
             this.recordNum++;
-
-            if (this.recordNum % 20 != 0 && this.recordNum < this.baratRekord.GetLength(0))
+            Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum, this.baratRekord[this.recordNum, 0], this.baratRekord[this.recordNum, 1], this.baratRekord[this.recordNum, 2], this.baratRekord[this.recordNum, 3]);
+            
+            if (this.recordNum == 0 && this.recordNum % 21 != 0 && this.recordNum < this.baratRekord.GetLength(0))
 	        {
                 this.outFilePgUp();
 	        }
         }
 
         public void outFilePgDn()
-        {
-            Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum, this.baratRekord[this.recordNum, 0], this.baratRekord[this.recordNum, 1], this.baratRekord[this.recordNum, 2], this.baratRekord[this.recordNum, 3]);
-            this.recordNum--;
+        {   
 
-            if (this.recordNum % 20 != 0 && this.recordNum < this.baratRekord.GetLength(0))
+            //Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum, this.baratRekord[this.recordNum, 0], this.baratRekord[this.recordNum, 1], this.baratRekord[this.recordNum, 2], this.baratRekord[this.recordNum, 3]);
+            this.recordNum++;
+
+            if (this.recordNum % 20 != 0 && this.recordNum <= this.baratRekord.GetLength(0))
 	        {
                 this.outFilePgDn();
 	        }
@@ -67,13 +67,18 @@ namespace BaratLapoz
             string filename = Console.ReadLine();
             BaratRekord br = new BaratRekord(@"C:\Users\2021302\Source\Repos\dorian-sz\GithubProgramok\BaratLapoz\" + filename + ".txt");
             br.readFile();
-            
+            br.outFilePgUp();
             while (true)
 	        {
                 if (Console.ReadKey().Key == ConsoleKey.PageUp)
 	            {
                    Console.Clear();
                    br.outFilePgUp();
+	            }
+                                if (Console.ReadKey().Key == ConsoleKey.PageDown)
+	            {
+                   Console.Clear();
+                   br.outFilePgDn();
 	            }
                 
 	        }
