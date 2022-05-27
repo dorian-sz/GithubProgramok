@@ -27,12 +27,13 @@ namespace MinMaxTest
             Assert.AreEqual(vartEredm, kapottEredm);
 
         }
+        [TestMethod]
         public void MaxTestMethod()
         {
             MinMaxclass mmc = new MinMaxclass(5);
             var stringReader = new StringReader("5\r\n3\r\n2\r\n6\r\n4");
 
-            var vartEredm = 2;
+            var vartEredm = 6;
 
 
             Console.SetIn(stringReader);
