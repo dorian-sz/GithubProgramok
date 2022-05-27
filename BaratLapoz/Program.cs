@@ -11,7 +11,7 @@ namespace BaratLapoz
     {
         private string[,] baratRekord;
         private string filename;
-        private int recordNum;
+        private int recordNum, prevNum;
 
         public BaratRekord(string file)
         {
@@ -37,18 +37,17 @@ namespace BaratLapoz
 
         public void outFilePgUp()
         {   
-            try 
-	        {	        
-		        this.recordNum++;
-                Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum, this.baratRekord[this.recordNum, 0], this.baratRekord[this.recordNum, 1], this.baratRekord[this.recordNum, 2], this.baratRekord[this.recordNum, 3]);
-	        }
-	        catch (IndexOutOfRangeException)
-	        {
+                
+      
+		        if (this.recordNum < this.baratRekord.GetLength(0)-1)
+	            {
+                    Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum, this.baratRekord[this.recordNum, 0], this.baratRekord[this.recordNum, 1], this.baratRekord[this.recordNum, 2], this.baratRekord[this.recordNum, 3]);
+                    this.recordNum++;
+	            }
 
-		        throw;
-	        }
+
             
-            if (this.recordNum % 21 != 0 && this.recordNum < this.baratRekord.GetLength(0))
+            if (this.recordNum % 20 != 0 && this.recordNum < this.baratRekord.GetLength(0)-1)
 	        {
                 this.outFilePgUp();
 	        }
@@ -56,14 +55,16 @@ namespace BaratLapoz
 
         public void outFilePgDn()
         {   
-
-            //Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum, this.baratRekord[this.recordNum, 0], this.baratRekord[this.recordNum, 1], this.baratRekord[this.recordNum, 2], this.baratRekord[this.recordNum, 3]);
-            this.recordNum++;
-
-            if (this.recordNum % 20 != 0 && this.recordNum <= this.baratRekord.GetLength(0))
+            if (this.recordNum > 0)
 	        {
-                this.outFilePgDn();
+                this.recordNum = this.recordNum-20;
+                for (int i = 0; i < 20; i++)
+			    {
+                    Console.Write("{0,2} {1,14} {2,16} {3,17} {4,10}\n", this.recordNum+i, this.baratRekord[this.recordNum+i, 0], this.baratRekord[this.recordNum+i, 1], this.baratRekord[this.recordNum+i, 2], this.baratRekord[this.recordNum+i, 3]);
+                
+			    }
 	        }
+
         }
 
     }

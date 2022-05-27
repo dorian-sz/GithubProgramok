@@ -70,4 +70,12 @@ ASdsad asdw,2022/05/24,férfi,6
 Asdsa asd,2022/05/24,férfi,5
 Dsdsa DSadnm,2022/05/24,nõ,4
 ASdsad asdw,2022/05/24,férfi,6
+Dsdsa DSadnm,2022/05/24,nõ,4
+ASdsad asdw,2022/05/24,férfi,6
+Asdsa asd,2022/05/24,férfi,5
+Dsdsa DSadnm,2022/05/24,nõ,4
+ASdsad asdw,2022/05/24,férfi,6
+Asdsa asd,2022/05/24,férfi,5
+Dsdsa DSadnm,2022/05/24,nõ,4
+ASdsad asdw,2022/05/24,férfi,6
 
